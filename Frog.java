@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Frog here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Andrew Li
+ * @version new version
  */
 public class Frog extends Actor
 {
@@ -17,9 +17,23 @@ public class Frog extends Actor
         // Add your action code here.
         
         if(Greenfoot.isKeyDown("d")){
-            move(2);
+            
+            move(5);
         }else if(Greenfoot.isKeyDown("a")){
-            move(-2);
+            move(-5);
+        }
+        // else if(Greenfoot.isKeyDown("w"){
+            // for(int i = 0; i < 100; i++){
+                
+        // }    
+        
+    }
+    public void eat()
+    {
+        if (isTouching(Plane.class)){
+            removeTouching(Plane.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.createPlane();
         }
     }
 }

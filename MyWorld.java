@@ -1,5 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class MyWorld here.
  * 
@@ -20,5 +20,13 @@ public class MyWorld extends World
         Frog frog = new Frog();
         addObject (frog, 300, 350);
         
+        createPlane();
+    }
+    public void createPlane()
+    {
+        Plane plane = new Plane();
+        int x = Greenfoot.getRandomNumber(600);
+        int y = Greenfoot.getRandomNumber(300);
+        addObject(plane, x, y);
     }
 }
