@@ -26,10 +26,11 @@ public class Frog extends Actor
     }
     public void eat()
     {
-        if (isTouching(Plane.class)){
+        if (isTouching(Plane.class)){ //detects if the frog is touching plane
             removeTouching(Plane.class);
             MyWorld world = (MyWorld) getWorld();
             world.createPlane();
+            world.increaseScore();
         }
     }
 }

@@ -16,5 +16,5 @@ public class Plane extends Actor
     {
         // Add your action code here.
         setLocation(getX(), getY() + 4);
-    }    
+    }
 }
