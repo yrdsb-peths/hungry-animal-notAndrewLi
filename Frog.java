@@ -15,18 +15,14 @@ public class Frog extends Actor
     public void act()
     {
         // Add your action code here.
-        
+
         if(Greenfoot.isKeyDown("d")){
-            
+
             move(5);
         }else if(Greenfoot.isKeyDown("a")){
             move(-5);
-        }
-        // else if(Greenfoot.isKeyDown("w"){
-            // for(int i = 0; i < 100; i++){
-                
-        // }    
-        
+        } 
+        eat();
     }
     public void eat()
     {
@@ -37,3 +33,4 @@ public class Frog extends Actor
         }
     }
 }
+

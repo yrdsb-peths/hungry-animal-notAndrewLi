@@ -26,7 +26,7 @@ public class MyWorld extends World
     {
         Plane plane = new Plane();
         int x = Greenfoot.getRandomNumber(600);
-        int y = Greenfoot.getRandomNumber(300);
+        int y = 0;
         addObject(plane, x, y);
     }
 }
