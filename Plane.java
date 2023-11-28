@@ -16,10 +16,7 @@ public class Plane extends Actor
     {
         // Add your action code here.
         setLocation(getX(), getY() + 4);
-        
         MyWorld world = (MyWorld) getWorld();
-        System.out.println(world.getHeight());
-        System.out.println(getY());
         if(getY() >= world.getHeight()){
             world.gameOver();
             world.removeObject(this);

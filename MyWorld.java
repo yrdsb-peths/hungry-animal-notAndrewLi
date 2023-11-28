@@ -33,6 +33,7 @@ public class MyWorld extends World
     public void gameOver(){
         Label gameOverLabel = new Label ("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
+        gameOverLabel.setFillColor(Color.RED);
     }
     
     public void increaseScore(){
@@ -43,6 +44,9 @@ public class MyWorld extends World
     public void createPlane()
     {
         Plane plane = new Plane();
+        GreenfootImage planeImage = plane.getImage();
+        planeImage.rotate(90);
+        planeImage.scale(100,100);
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
         addObject(plane, x, y);
