@@ -46,9 +46,15 @@ public class Frog extends Actor
         if(facingRight){
             setImage(idleRight[imageIndex]);
             imageIndex = (imageIndex + 1) % idleRight.length;
+            if(imageIndex == 1){
+                move(100);
+            }
         } else{
             setImage(idleLeft[imageIndex]);
             imageIndex = (imageIndex + 1) % idleLeft.length;
+            if(imageIndex == 1){
+                move(-100);
+            }
         }
     }
     
