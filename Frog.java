@@ -13,18 +13,25 @@ public class Frog extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GreenfootSound bite = new GreenfootSound("sounds/bite.mp3");
-    GreenfootImage[] idle = new GreenfootImage[6];
+    GreenfootImage[] idleLeft = new GreenfootImage[6];
+    GreenfootImage[] idleRight = new GreenfootImage[6];
     SimpleTimer animationTimer = new SimpleTimer();
+    //direction the frog is facing
+    boolean facingRight = false;
     /*
      * Constructor - The code that gets run one time when object is created
      */
     public Frog(){
-        for(int i = 0; i < idle.length; i++){
-            idle[i] = new GreenfootImage("images/frog_idle/frog" + (i + 1) + ".png");
+        for(int i = 0; i < idleLeft.length; i++){
+            idleLeft[i] = new GreenfootImage("images/frog_idle/frog" + (i + 1) + ".png");
         }
         
+        for(int i = 0; i < idleRight.length; i++){
+            idleRight[i] = new GreenfootImage("images/frog_idle/frog" + (i + 1) + ".png");
+            idleRight[i].mirrorHorizontally();
+        }
         animationTimer.mark();
-        setImage(idle[0]);
+        setImage(idleLeft[0]);
     }
     
     /*
@@ -36,17 +43,23 @@ public class Frog extends Actor
             return;
         }
         animationTimer.mark();
-        setImage(idle[imageIndex]);
-        imageIndex = (imageIndex + 1) % idle.length;
+        if(facingRight){
+            setImage(idleRight[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        } else{
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
     }
     
     public void act()
     {
         // Add your action code here.
         if(Greenfoot.isKeyDown("d")){
-
+            facingRight = true;
             move(5);
         }else if(Greenfoot.isKeyDown("a")){
+            facingRight = false;
             move(-5);
         } 
         eat();
