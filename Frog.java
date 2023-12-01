@@ -13,6 +13,33 @@ public class Frog extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GreenfootSound bite = new GreenfootSound("sounds/bite.mp3");
+    GreenfootImage[] idle = new GreenfootImage[6];
+    SimpleTimer animationTimer = new SimpleTimer();
+    /*
+     * Constructor - The code that gets run one time when object is created
+     */
+    public Frog(){
+        for(int i = 0; i < idle.length; i++){
+            idle[i] = new GreenfootImage("images/frog_idle/frog" + (i + 1) + ".png");
+        }
+        
+        animationTimer.mark();
+        setImage(idle[0]);
+    }
+    
+    /*
+     * Animate the frawg
+     */
+    int imageIndex = 0;
+    public void animateFrog(){
+        if(animationTimer.millisElapsed() < 100){
+            return;
+        }
+        animationTimer.mark();
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1) % idle.length;
+    }
+    
     public void act()
     {
         // Add your action code here.
@@ -23,6 +50,8 @@ public class Frog extends Actor
             move(-5);
         } 
         eat();
+        
+        animateFrog();
     }
     public void eat()
     {
