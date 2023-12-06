@@ -39,6 +39,7 @@ public class Frog extends Actor
      */
     int imageIndex = 0;
     public void animateFrog(){
+        MyWorld world = (MyWorld) getWorld();
         if(animationTimer.millisElapsed() < 100){
             return;
         }
@@ -46,13 +47,13 @@ public class Frog extends Actor
         if(facingRight){
             setImage(idleRight[imageIndex]);
             imageIndex = (imageIndex + 1) % idleRight.length;
-            if(imageIndex == 1){
+            if(imageIndex == 1 && world.equals(MyWorld)){
                 move(100);
             }
         } else{
             setImage(idleLeft[imageIndex]);
             imageIndex = (imageIndex + 1) % idleLeft.length;
-            if(imageIndex == 1){
+            if(imageIndex == 1 && world.equals(MyWorld)){
                 move(-100);
             }
         }

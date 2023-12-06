@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-    Label titleLabel = new Label("Hungry Frog", 60);
+    Label titleLabel = new Label("Hungry Frog", 100);
+    Label instructions = new Label("Press Space to Play", 30);
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -17,10 +18,9 @@ public class TitleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        
-        addObject(titleLabel, getWidth()/2, getHeight()/2);
-        
+        prepare();
     }
+
     /*
      * the main world act loop
      */
@@ -29,5 +29,17 @@ public class TitleScreen extends World
             MyWorld gameWorld = new MyWorld();
             Greenfoot.setWorld(gameWorld);
         }
+    }
+
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Label label = new Label("Use \"a\" and \"d\" to Move", 60);
+        addObject(titleLabel, getWidth()/2, 100);        
+        addObject(label,300,237);
+        addObject(instructions, 300,337);
     }
 }
