@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Frog here.
+ * Frog.
  * 
  * @author Andrew Li
  * @version new version
