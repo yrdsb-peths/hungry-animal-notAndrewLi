@@ -35,17 +35,26 @@ public class MyWorld extends World
         createPlane();
     }
     
+    /**
+     * displays the game over screen
+     */
     public void gameOver(){
         Label gameOverLabel = new Label ("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
         gameOverLabel.setFillColor(Color.RED);
     }
     
+    /**
+     * increases the score
+     */
     public void increaseScore(){
         score++;
         scoreLabel.setValue(score); //set the score to the new score
     }
     
+    /**
+     * creates a plane
+     */
     public void createPlane()
     {
         Plane plane = new Plane();

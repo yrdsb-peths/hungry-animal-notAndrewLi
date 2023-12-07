@@ -21,7 +21,8 @@ public class TitleScreen extends World
         addObject(titleLabel, getWidth()/2, getHeight()/2);
         
     }
-    /*
+    
+    /**
      * the main world act loop
      */
     public void act(){
