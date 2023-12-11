@@ -17,6 +17,7 @@ public class MyWorld extends World
     
     public int score = 0;
     Label scoreLabel;
+    int level = 1;
     GreenfootImage background = new GreenfootImage("images/shrekSwamp.jpg");
     public MyWorld()
     {    
@@ -44,6 +45,9 @@ public class MyWorld extends World
     public void increaseScore(){
         score++;
         scoreLabel.setValue(score); //set the score to the new score
+        if(score % 5 == 0){
+            level += 1;
+        }
     }
     
     public void createPlane()
@@ -52,6 +56,7 @@ public class MyWorld extends World
         GreenfootImage planeImage = plane.getImage();
         planeImage.rotate(90);
         planeImage.scale(100,100);
+        plane.setSpeed(level);
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
         addObject(plane, x, y);

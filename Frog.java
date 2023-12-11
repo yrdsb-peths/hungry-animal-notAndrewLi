@@ -16,6 +16,7 @@ public class Frog extends Actor
     GreenfootImage[] idleLeft = new GreenfootImage[6];
     GreenfootImage[] idleRight = new GreenfootImage[6];
     SimpleTimer animationTimer = new SimpleTimer();
+
     //direction the frog is facing
     boolean facingRight = false;
     /*
@@ -39,7 +40,7 @@ public class Frog extends Actor
      */
     int imageIndex = 0;
     public void animateFrog(){
-        MyWorld world = (MyWorld) getWorld();
+        World world = (World) getWorld();
         if(animationTimer.millisElapsed() < 100){
             return;
         }
@@ -47,13 +48,13 @@ public class Frog extends Actor
         if(facingRight){
             setImage(idleRight[imageIndex]);
             imageIndex = (imageIndex + 1) % idleRight.length;
-            if(imageIndex == 1 && world.equals(MyWorld)){
+            if(imageIndex == 1 && this.getWorld().getClass() == MyWorld.class){
                 move(100);
             }
         } else{
             setImage(idleLeft[imageIndex]);
             imageIndex = (imageIndex + 1) % idleLeft.length;
-            if(imageIndex == 1 && world.equals(MyWorld)){
+            if(imageIndex == 1 && this.getWorld().getClass() == MyWorld.class){
                 move(-100);
             }
         }
@@ -76,8 +77,8 @@ public class Frog extends Actor
     public void eat()
     {
         if (isTouching(Plane.class)){ //detects if the frog is touching plane
-            removeTouching(Plane.class);
             MyWorld world = (MyWorld) getWorld();
+            removeTouching(Plane.class);
             world.createPlane();
             world.increaseScore();
             bite.play();

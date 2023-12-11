@@ -10,6 +10,8 @@ public class TitleScreen extends World
 {
     Label titleLabel = new Label("Hungry Frog", 100);
     Label instructions = new Label("Press Space to Play", 30);
+    GreenfootImage bg = new GreenfootImage("images/titleScreen.png");
+
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -17,7 +19,9 @@ public class TitleScreen extends World
     public TitleScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 400, 1);
+        bg.scale(600,400);
+        this.setBackground(bg);
         prepare();
     }
 
@@ -41,5 +45,7 @@ public class TitleScreen extends World
         addObject(titleLabel, getWidth()/2, 100);        
         addObject(label,300,237);
         addObject(instructions, 300,337);
+        Frog frog = new Frog();
+        addObject(frog,285,180);
     }
 }
