@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Frog here.
+ * Frog.
  * 
  * @author Andrew Li
  * @version new version
@@ -19,7 +19,7 @@ public class Frog extends Actor
 
     //direction the frog is facing
     boolean facingRight = false;
-    /*
+    /**
      * Constructor - The code that gets run one time when object is created
      */
     public Frog(){
@@ -35,7 +35,7 @@ public class Frog extends Actor
         setImage(idleLeft[0]);
     }
     
-    /*
+    /**
      * Animate the frawg
      */
     int imageIndex = 0;
@@ -60,6 +60,9 @@ public class Frog extends Actor
         }
     }
     
+    /**
+     * moves, animates and allows the frog to eat
+     */
     public void act()
     {
         // Add your action code here.
@@ -74,6 +77,10 @@ public class Frog extends Actor
         
         animateFrog();
     }
+    
+    /**
+     * removes the plane and plays a sound
+     */
     public void eat()
     {
         if (isTouching(Plane.class)){ //detects if the frog is touching plane

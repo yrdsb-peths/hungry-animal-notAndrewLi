@@ -14,7 +14,6 @@ public class TitleScreen extends World
 
     /**
      * Constructor for objects of class TitleScreen.
-     * 
      */
     public TitleScreen()
     {    
@@ -24,8 +23,8 @@ public class TitleScreen extends World
         this.setBackground(bg);
         prepare();
     }
-
-    /*
+    
+    /**
      * the main world act loop
      */
     public void act(){
