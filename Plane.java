@@ -22,7 +22,7 @@ public class Plane extends Actor
         setLocation(x, y);
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight()){
-            world.gameOver();
+            world.loseLife();
             world.removeObject(this);
         }
     }
