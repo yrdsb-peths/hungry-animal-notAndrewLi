@@ -25,6 +25,7 @@ public class MyWorld extends World
         super(600, 400, 1, false);
         background.scale(super.getWidth(), super.getHeight());
         super.setBackground(background);
+        Heart hearts = new Heart();
         //create the frog actor
         Frog frog = new Frog();
         addObject (frog, 300, 350);
